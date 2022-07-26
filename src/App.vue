@@ -1,15 +1,46 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <div 
+      v-for="obj in toDos"
+      :key="obj.id"
+      class="todo-item"
+    >
+      {{ obj.title }}
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    
+  },
+  data() {
+    return {
+      toDos: [
+        {
+        "userId": 1,
+        "id": 1,
+        "title": "Lorem ipsum",
+        "completed": false
+        },
+        {
+        "userId": 1,
+        "id": 2,
+        "title": "catacumba vazia",
+        "completed": false
+        },
+        {
+        "userId": 1,
+        "id": 3,
+        "title": "Paranaue",
+        "completed": false
+        },
+      ]
+    }
   }
 }
 </script>
@@ -22,5 +53,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.todo-item {
+  background-color: #000;
+  margin: 0 0 5px 0;
+  padding: 3px 6px;
+  color: #fff;
 }
 </style>
